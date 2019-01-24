@@ -37,11 +37,13 @@
 {\LARGE\bf
      Python 3 Quick Reference\\
 }
-      \bigskip
+           \bigskip
 
           Hubert Högl
 
-      Revision 0.4, 2018-02-12
+      Revision 0.5, 2019-01-24 
+      
+          2018, 2019
 
  \url{https://github.com/huberthoegl/pqr3}
       
@@ -108,45 +110,44 @@ break      except     in         raise
 
 
 \bigskip
-{\large\bf PYTHON3}
-\addcontentsline{toc}{section}{Python 3}
+{\large\bf PYTHON}
+\addcontentsline{toc}{section}{Python}
 
 \begin{verbatim}
-hhoegl@e11 ~ $ python3
-Python 3.5.1 |Anaconda 2.4.0 (32-bit)| (default, Dec  7 2015, 11:17:45) 
-[GCC 4.4.7 20120313 (Red Hat 4.4.7-1)] on linux
+hhoegl@e11 ~$ python
+Python 3.7.1 (default, Dec 14 2018, 19:28:38) 
+[GCC 7.3.0] :: Anaconda, Inc. on linux
 Type "help", "copyright", "credits" or "license" for more information.
 >>> _ 
 \end{verbatim}
 
 \begin{itemize}
 \item Basic Python prompt.
+\item Tab Completion.
 \item Use only for short "throw-away" interactive work.
 \item For comfortable interactive work use {\tt IPython}.
+\item Windows: Launcher {\tt py [Version] pgm.py}, newest Version default, 
+      {\tt -2} for Python 2.
 \end{itemize}
 
 
 \bigskip
-{\large\bf IPYTHON3}
-\addcontentsline{toc}{section}{IPython3}
+{\large\bf IPYTHON}
+\addcontentsline{toc}{section}{IPython}
 
 \begin{verbatim}
-hhoegl@e11 ~/anaconda3/bin $ ./ipython3 
-Python 3.5.1 |Anaconda 2.4.0 (32-bit)| (default, Dec  7 2015, 11:17:45) 
-Type "copyright", "credits" or "license" for more information.
-
-IPython 4.0.0 -- An enhanced Interactive Python.
-?         -> Introduction and overview of IPython's features.
-%quickref -> Quick reference.
-help      -> Python's own help system.
-object?   -> Details about 'object', use 'object??' for extra details.
-
-In [1]: _ 
+hhoegl@e11 ~$ ipython
+Python 3.7.1 (default, Dec 14 2018, 19:28:38) 
+Type 'copyright', 'credits' or 'license' for more information
+IPython 7.2.0 -- An enhanced Interactive Python. Type '?' for help.
+In [1]: _
 \end{verbatim}
 
 \bigskip
 
 \begin{itemize}
+
+\item Nice tab completion based on {\tt prompt\_toolkit} and {\tt ptpython}.
 
 \item Get help with {\tt ?} or {\tt ??} after module, function, 
    object, identifier.
@@ -164,24 +165,114 @@ In [1]: _
 \item The {\tt \%editor} command (alias {\tt \%ed}) starts the editor which is 
    defined in the {\tt EDITOR} environment variable.
 
-\item The IPython configuration is in directory {\tt \~{}/.ipython/}.  
-   More help: {\tt ipython config -h}
-
-\item IPython help: {\tt ipython3 -{}-help}
-
-\item IPython Notebook help: {\tt ipython3 notebook -{}-help}
-
 \item 
 
    \begin{verbatim}
-   ipython3 --pylab
-   ipython3 --matplotlib tk
-   ipython3 --matplotlib qt4
+   ipython --help
+   ipython locate           # ~/.ipython/
+   ipython profile help
+   ipython profile list
+   ipython profile create <name>
+   ipython --pylab          # Using matplotlib backend: Qt5Agg
+   ipython --matplotlib tk
+   ipython --matplotlib qt
    \end{verbatim}
+
+\item Module {\tt IPython}: 
+   {\tt import IPython; print(IPython.version\_info)}
 
 \end{itemize}
 
 
+\bigskip
+{\large\bf IPYTHON MAGIC}
+\addcontentsline{toc}{section}{IPython Magic}
+
+\setlength{\columnsep}{1cm}
+\begin{multicols}{3}
+
+{\tt \%quickref} \rval IPy quick reference
+
+{\tt <magic>? \rval help}
+
+{\tt !ls} \rval system command; {\tt L = !ls} store output in list L
+
+{\tt In [26]:} \rval {\tt \_i26}, {\tt \_ih[26]}, {\tt \_ih[26:27]}
+
+{\tt Out [26]:} \rval {\tt \_oh[26]}
+
+Inputs {\tt \_i}, {\tt \_ii}, {\tt \_iii}, 
+Outputs {\tt \_}, {\tt \_\_}, {\tt \_\_\_} 
+
+{\tt \#\%\%} \rval  cell
+
+{\tt \%<magic>} \rval line magic; {\tt \%\%<magic>} \rval cell magic
+
+{\tt \%bookmark}
+
+{\tt \%cd-<nr>}
+
+{\tt \%cd \~{}}
+
+{\tt \%clear} \rval Konsole löschen
+
+{\tt \%dhist}
+
+{\tt \%dirs}, {\tt \%pushd}, {\tt popd} \rval directory stack
+
+{\tt \%edit}
+
+{\tt \%env}
+
+{\tt \%exec \_i4}
+
+{\tt \%exit}
+
+{\tt \%history}, {\tt \%hist}
+
+{\tt \%logstart [logfile]}
+
+{\tt \%logstop}
+
+{\tt \%logon}
+
+{\tt \%logoff}
+
+{\tt \%lsmagic} \rval list available magics
+
+{\tt \%paste}, {\tt cpaste}
+
+{\tt \%pycat}
+
+{\tt \%pylab}
+
+{\tt \%reset} \rval reset namespace
+
+{\tt \%save}
+
+{\tt \%rep \_i4} \rval edit input line
+
+{\tt \%run pgm.py} \rval run program
+
+{\tt \%run -t pgm.py} \rval report timing
+
+{\tt \%run -d -b<line> pgm.py} \rval debug, set breakpoint at line
+
+{\tt \%run -d -b <file.py>:<line> pgm.py}
+
+{\tt \%time}, {\tt \%timeit}
+
+{\tt \%who}, {\tt \%who\_ls}, {\tt whos}
+
+{\tt \%xmode}
+
+\end{multicols}
+
+\medskip
+
+\bigskip
+{\large\bf SOURCE ENCODING}
+\addcontentsline{toc}{section}{Source Encoding}
 
 \begin{itemize}
 
@@ -195,7 +286,7 @@ In [1]: _
 \end{verbatim}
 %  π = 3.141516
  
-    Further reading (Unicode): [5] 
+\item Unicode reader: [5] 
 
 \end{itemize}
 
@@ -1499,7 +1590,7 @@ build_sphinx  test            bdist_wininst   [py2exe]       ...
    \item newer versions of {\tt pip} also work with wheels
    \end{itemize}
 
-\item pip (pip3)
+\item pip 
 
    \begin{itemize}
 
@@ -2133,58 +2224,17 @@ import scipy
 
 
 \bigskip
-{\LARGE\bf Tool Quickrefs: Conda, Spyder, Jupyter NB}
-\addcontentsline{toc}{section}{Tool Quickrefs: Conda, Spyder, Jupyter NB} 
+{\LARGE\bf Tool Quickrefs: Jupyter, Conda, Spyder}
+\addcontentsline{toc}{section}{Tool Quickrefs: Jupyter, Conda, Spyder} 
 
-{\bf Conda}
+{\bf Jupyter}
 
 \begin{verbatim}
-conda search <package>                   pip search <package>
-
-conda install <package>                  pip install <package>
-conda install python=x.x  
-conda install --channel <name> <module>
-
-conda create --name <env> python         
-source activate <env>           
-source deactivate                        deactivate
-conda list --name <env>                  pip list
-conda list --export                      pip freeze
-conda info --envs (list all envs)        lsvirtualenv (virtualenv wrapper)
-conda install python=x.x
-conda update python *
-conda install pip                        pip install conda
-                                         pip show conda
-conda remove <package>
-conda remove --name <env> <package>
+jupyter --help
+jupyter --paths
+jupyter <subcommand> --help
+jupyter qtconsole --generate-config  # ~/.jupyter/jupyter_qtconsole_config.py
 \end{verbatim}
-
-% Tabular comparison of Conda, Pip and Virtualenv
-%  \url{https://conda.io/docs/_downloads/conda-pip-virtualenv-translator.html}
-
-Example: Creates environment {\tt testenv} in {\tt ~/anaconda3/envs/}:
-
-\begin{verbatim}
-   conda create --name testenv python
-   source activate testenv
-   (testenv) hhoegl@e11:~/anaconda3/envs$
-\end{verbatim}
-
-\medskip
-
-{\bf Spyder keyboard shortcuts}
-
-\begin{verbatim}
-Quit       C-Q          Go to def   C-G
-Restart    A-Sh-R       Find text   C-F
-Run        F5           Find next   F3
-Fullscreen F11          Code complete  C-Space
-Breakpoint F12          Undo        C-Z
-Debug      C-F5         Indent      Tab
-Block comment  C-4      Unindent    Sh-Tab
-Block uncomm   C-5      many more, see Tools -> Preferences menu in Spyder
-\end{verbatim}      
-
 
 \medskip
 
@@ -2223,6 +2273,82 @@ Undo               Ctrl-Z
 Toggle comment     Ctrl-/
 \end{verbatim}      
 
+
+
+{\bf Conda}
+
+\begin{verbatim}
+--------Conda--------------              --------Pip-------------------
+conda 
+conda search <package>                   pip search <package>
+
+conda install <package>                  pip install <package>
+conda install python=x.x  
+conda install --channel <name> <module>
+
+conda create --name <env> python         
+source activate <env>           
+source deactivate                        deactivate
+conda list --name <env>                  pip list
+conda list --export                      pip freeze
+conda info --envs (list all envs)        lsvirtualenv (virtualenv wrapper)
+conda install python=x.x
+conda update python *
+conda install pip                        pip install conda
+
+conda list -e > pkgfile
+conda create -n <env> --file < pkgfile
+                                         pip show conda
+conda remove <package>
+conda remove --name <env> <package>
+
+conda env --help   # modern env
+conda env export > pkgfile 
+conda env create -f=pkgfile -n <name>
+\end{verbatim}
+
+
+
+% Tabular comparison of Conda, Pip and Virtualenv
+%  \url{https://conda.io/docs/_downloads/conda-pip-virtualenv-translator.html}
+
+Example: Create environment {\tt testenv} in {\tt ~/anaconda3/envs/}:
+
+\begin{verbatim}
+   conda create --name testenv python
+   source activate testenv
+   (testenv) hhoegl@e11:~/anaconda3/envs$
+\end{verbatim}
+
+\medskip
+
+{\bf Spyder keyboard shortcuts}
+
+\begin{verbatim}
+Quit       C-Q          Go to def   C-G
+Restart    A-Sh-R       Find text   C-F
+Run        F5           Find next   F3
+Fullscreen F11          Code complete  C-Space
+Breakpoint F12          Undo        C-Z
+Debug      C-F5         Indent      Tab
+Block comment  C-4      Unindent    Sh-Tab
+Block uncomm   C-5      many more, see Tools -> Preferences menu in Spyder
+\end{verbatim}      
+
+
+\medskip
+
+{\bf Windows keyboard shortcuts}
+
+\begin{tabbing}
+    xxxxxxxxxxxxx \= xxxxxxxxxxxxxxxxxxxxxxx \kill
+    Ctrl-F        \> Search  \\
+    Ctrl-Sh-ESC   \> Task Manager \\
+    Win-E         \> Explorer \\
+    Win-D         \> Desktop  \\
+\end{tabbing}
+
+\medskip
 
 
 \addcontentsline{toc}{section}{Literature}
