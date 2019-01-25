@@ -1558,109 +1558,6 @@ AssertionError: Alert. Too much pressure!
 
 
 
-
-\bigskip
-{\LARGE\bf PACKAGE MANAGEMENT AND INSTALLATION}
-\addcontentsline{toc}{section}{Package management and installation}
-
-\begin{itemize}
-
-\item distutils -- basic support to create and install distributions
-  (introduced {\tt setup.py})
-
-\begin{verbatim}
-python setup.py --help-commands
-
-build         build_ext       build_py        clean          install 
-sdist         upload check    saveopts        bdist          bdist_wheel    
-build_sphinx  test            bdist_wininst   [py2exe]       ...
-\end{verbatim}
-
-\item setuptools -- enhancements to distutils
-
-   \begin{itemize}
-   \item Create wheels with {\tt bdist\_wheels} setuptools extension
-   \item Do not use {\tt easy\_install} and {\tt eggs}!
-   \end{itemize}
-
-\item wheel -- Binary archive format (successor of {\tt eggs})
-      
-   \begin{itemize}
-   \item {\tt wheel} utility installs and verifies wheels
-   \item newer versions of {\tt pip} also work with wheels
-   \end{itemize}
-
-\item pip 
-
-   \begin{itemize}
-
-   \item Installs source distributions (sdist/.tar.gz) and binary 
-      distributions (wheels/.whl)
-
-   \item Help
-   
-      \begin{verbatim}
-      pip --help, pip install --help
-
-      pip list             list all installed packages
-      pip search <str>     Search PyPI for <str>
-      pip show <pkg>       show pkg info
-      pip install <pkg>    install package
-      pip install -U <pkg> upgrade package
-      pip uninstall <pkg>  remove packge
-      ...
-      \end{verbatim}
-
-   \item Trick to choose Python version:
-   
-      \begin{verbatim}
-      python3.6 -m pip install ...   # Linux
-      py -3.6 -m pip install ...     # Windows
-      \end{verbatim}
-
-   \end{itemize}
-
-\item  Virtual Environments
-
-\begin{itemize}
-
-  \item Python 3.6 and higher
-
-      \begin{verbatim}
-      python3 -m venv new_env       # Windows py -3.6 -m venv new_env 
-      source new_env/bin/activate   # Windows new_env\Scripts\activate.bat 
-      ...
-      deactivate
-      \end{verbatim}
-
-      The {\tt pyvenv} tool introduced in Py 3.x is deprecated in 3.6.
-
-  \item Python 2: virtualenv 
-
-      \begin{verbatim}
-      virtualenv <DIR>
-      source <DIR>/bin/activate
-      \end{verbatim}
-
-\end{itemize}
-
-\item conda -- comes with Anaconda (https://www.continuum.io). 
-   Combines functionality of {\tt pip} and {\tt venv}.
-
-%  \url{https://www.continuum.io/blog/developer/conda-packaging-pydata-ecosystem}
-%  \url{http://conda.pydata.org/docs/_downloads/conda-pip-virtualenv-translator.html}
-
-\item Use {\tt twine} to interact with PyPI.
-
-\item \url{http://www.pyinstaller.org} freezes programs into standalone
-  executables.
-
-\end{itemize}
-
-
-Lit.: [9]
-
-
 \bigskip
 {\LARGE\bf DOCUMENT CREATION}
 \addcontentsline{toc}{section}{Document creation}
@@ -2224,17 +2121,98 @@ import scipy
 
 
 \bigskip
-{\LARGE\bf Tool Quickrefs: Jupyter, Conda, Spyder}
-\addcontentsline{toc}{section}{Tool Quickrefs: Jupyter, Conda, Spyder} 
+{\LARGE\bf TOOLS}
+\addcontentsline{toc}{section}{TOOLS} 
 
+\medskip
+{\bf Package Management}
+\addcontentsline{toc}{subsection}{Package Management}
+
+\begin{itemize}
+
+\item distutils -- basic support to create and install distributions
+  (introduced {\tt setup.py})
+
+\begin{verbatim}
+python setup.py --help-commands
+
+build         build_ext       build_py        clean          install 
+sdist         upload check    saveopts        bdist          bdist_wheel    
+build_sphinx  test            bdist_wininst   [py2exe]       ...
+\end{verbatim}
+
+\item setuptools -- enhancements to distutils
+
+   \begin{itemize}
+   \item Create wheels with {\tt bdist\_wheels} setuptools extension
+   \item Do not use {\tt easy\_install} and {\tt eggs}!
+   \end{itemize}
+
+\item wheel -- Binary archive format (successor of {\tt eggs})
+      
+   \begin{itemize}
+   \item {\tt wheel} utility installs and verifies wheels
+   \item newer versions of {\tt pip} also work with wheels
+   \end{itemize}
+
+\item pip 
+
+   \begin{itemize}
+
+   \item Installs source distributions (sdist/.tar.gz) and binary 
+      distributions (wheels/.whl)
+
+   \item Help
+   
+      \begin{verbatim}
+      pip --help, pip install --help
+
+      pip list             list all installed packages
+      pip search <str>     Search PyPI for <str>
+      pip show <pkg>       show pkg info
+      pip install <pkg>    install package
+      pip install -U <pkg> upgrade package
+      pip uninstall <pkg>  remove packge
+      ...
+      \end{verbatim}
+
+   \item Trick to choose Python version:
+   
+      \begin{verbatim}
+      python3.6 -m pip install ...   # Linux
+      py -3.6 -m pip install ...     # Windows
+      \end{verbatim}
+
+   \end{itemize}
+
+   \item Use {\tt twine} to interact with PyPI.
+
+   \item \url{http://www.pyinstaller.org} freezes programs into standalone
+         executables on Windows.
+
+\end{itemize}
+
+Lit.: [9]
+
+
+
+\medskip
 {\bf Jupyter}
+\addcontentsline{toc}{subsection}{Jupyter}
 
 \begin{verbatim}
 jupyter --help
 jupyter --paths
 jupyter <subcommand> --help
 jupyter qtconsole --generate-config  # ~/.jupyter/jupyter_qtconsole_config.py
+jupyter notebook     # start notebook server
+jupyter nbconvert    
 \end{verbatim}
+
+Edit {\tt jupyter\_qtconsole\_config.py} to change settings, e.g. font size.
+
+{\tt jupyter nbconvert} can export to serveral formats, e.g. asciidoc, html,
+latex, markdown, rst, pdf.
 
 \medskip
 
@@ -2274,8 +2252,9 @@ Toggle comment     Ctrl-/
 \end{verbatim}      
 
 
-
-{\bf Conda}
+\medskip
+{\bf Conda/Pip Package Management}
+\addcontentsline{toc}{subsection}{Conda/Pip Package Management}
 
 \begin{verbatim}
 --------Conda--------------              --------Pip-------------------
@@ -2283,62 +2262,93 @@ conda
 conda search <package>                   pip search <package>
 
 conda install <package>                  pip install <package>
+                                         pip install -U <package>    # Upgrade
 conda install python=x.x  
 conda install --channel <name> <module>
 
-conda create --name <env> python         
-source activate <env>           
-source deactivate                        deactivate
 conda list --name <env>                  pip list
 conda list --export                      pip freeze
-conda info --envs (list all envs)        lsvirtualenv (virtualenv wrapper)
 conda install python=x.x
 conda update python *
 conda install pip                        pip install conda
+conda remove <package>                   pip uninstall <package>
+conda remove --name <env> <package>
+                                         pip show conda
+\end{verbatim}
+
+
+
+\medskip
+{\bf Environments}
+\addcontentsline{toc}{subsection}{Environments}
+
+--- Venv Environments ---
+
+The {\tt pyvenv} tool introduced in Py 3.x is deprecated in 3.6.
+
+\begin{verbatim}
+------Linux-------------------         ----------Windows-----------------
+python3 -m venv new_env                # py -3.6 -m venv new_env 
+source new_env/bin/activate            # new_env\Scripts\activate.bat 
+...
+deactivate
+\end{verbatim}
+
+
+--- Conda Environments ---
+
+\begin{verbatim}
+-----------Linux------------------     -----------Windows----------------
+conda create --name <env> python         
+conda info --envs (list all envs)        
+source activate <env>                    activate <env>
+source deactivate                        deactivate
+conda remove --name myenv --all
 
 conda list -e > pkgfile
 conda create -n <env> --file < pkgfile
-                                         pip show conda
-conda remove <package>
-conda remove --name <env> <package>
-
+                                         
 conda env --help   # modern env
+conda env export > pkgfile 
+conda env create -f=pkgfile -n <name>
+                                         
+conda env --help   # modern env commands
 conda env export > pkgfile 
 conda env create -f=pkgfile -n <name>
 \end{verbatim}
 
-
-
-% Tabular comparison of Conda, Pip and Virtualenv
-%  \url{https://conda.io/docs/_downloads/conda-pip-virtualenv-translator.html}
-
-Example: Create environment {\tt testenv} in {\tt ~/anaconda3/envs/}:
+Example: Create environment {\tt testenv} (Linux)
 
 \begin{verbatim}
-   conda create --name testenv python
-   source activate testenv
-   (testenv) hhoegl@e11:~/anaconda3/envs$
+   $ conda create --name testenv python
+   $ conda activate testenv
+   (testenv) hhoegl@e3:~$ _      # ~/miniconda3/envs/testenv/
 \end{verbatim}
 
+
 \medskip
+{\bf Spyder}
+\addcontentsline{toc}{subsection}{Spyder}
 
 {\bf Spyder keyboard shortcuts}
 
 \begin{verbatim}
-Quit       C-Q          Go to def   C-G
-Restart    A-Sh-R       Find text   C-F
-Run        F5           Find next   F3
-Fullscreen F11          Code complete  C-Space
-Breakpoint F12          Undo        C-Z
-Debug      C-F5         Indent      Tab
-Block comment  C-4      Unindent    Sh-Tab
-Block uncomm   C-5      many more, see Tools -> Preferences menu in Spyder
+Quit           C-Q          Go to def      C-G
+Restart        A-Sh-R       Find text      C-F
+Run            F5           Find next      F3
+Fullscreen     F11          Code complete  C-Space
+Breakpoint     F12          Undo           C-Z
+Debug          C-F5         Indent         Tab
+Block comment  C-4          Unindent       Sh-Tab
+Block uncomm   C-5          many more, see Tools -> Preferences menu in Spyder
 \end{verbatim}      
 
 
 \medskip
 
-{\bf Windows keyboard shortcuts}
+{\bf Windows}
+\addcontentsline{toc}{subsection}{Windows}
+
 
 \begin{tabbing}
     xxxxxxxxxxxxx \= xxxxxxxxxxxxxxxxxxxxxxx \kill
@@ -2384,10 +2394,6 @@ Block uncomm   C-5      many more, see Tools -> Preferences menu in Spyder
 \bibitem{9} Python Packaging User Guide
 
     \url{https://packaging.python.org}
-
-\bibitem{10} The Hitchhiker's Guide to Python
-
-    \url{http://docs.python-guide.org/en/latest}
 
 \end{thebibliography}
 
