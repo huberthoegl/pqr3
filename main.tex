@@ -149,126 +149,11 @@ In [1]: _
 
 \item Nice tab completion based on {\tt prompt\_toolkit} and {\tt ptpython}.
 
-\item Get help with {\tt ?} or {\tt ??} after module, function, 
-   object, identifier.
-
-   \begin{verbatim}
-   import os
-   os?
-   id?
-   \end{verbatim}
-
-   Press {\tt TAB} key to auto-complete.
-
-   Enter {\tt quickref} for a list of magic commands.
-
-\item The {\tt \%editor} command (alias {\tt \%ed}) starts the editor which is 
-   defined in the {\tt EDITOR} environment variable.
-
-\item 
-
-   \begin{verbatim}
-   ipython --help
-   ipython locate           # ~/.ipython/
-   ipython profile help
-   ipython profile list
-   ipython profile create <name>
-   ipython --pylab          # Using matplotlib backend: Qt5Agg
-   ipython --matplotlib tk
-   ipython --matplotlib qt
-   \end{verbatim}
-
-\item Module {\tt IPython}: 
-   {\tt import IPython; print(IPython.version\_info)}
+\item See page \pageref{ipy-section} for more information.
 
 \end{itemize}
 
 
-\bigskip
-{\large\bf IPYTHON MAGIC}
-\addcontentsline{toc}{section}{IPython Magic}
-
-\setlength{\columnsep}{1cm}
-\begin{multicols}{3}
-
-{\tt \%quickref} \rval IPy quick reference
-
-{\tt <magic>? \rval help}
-
-{\tt !ls} \rval system command; {\tt L = !ls} store output in list L
-
-{\tt In [26]:} \rval {\tt \_i26}, {\tt \_ih[26]}, {\tt \_ih[26:27]}
-
-{\tt Out [26]:} \rval {\tt \_oh[26]}
-
-Inputs {\tt \_i}, {\tt \_ii}, {\tt \_iii}, 
-Outputs {\tt \_}, {\tt \_\_}, {\tt \_\_\_} 
-
-{\tt \#\%\%} \rval  cell
-
-{\tt \%<magic>} \rval line magic; {\tt \%\%<magic>} \rval cell magic
-
-{\tt \%bookmark}
-
-{\tt \%cd-<nr>}
-
-{\tt \%cd \~{}}
-
-{\tt \%clear} \rval Konsole löschen
-
-{\tt \%dhist}
-
-{\tt \%dirs}, {\tt \%pushd}, {\tt popd} \rval directory stack
-
-{\tt \%edit}
-
-{\tt \%env}
-
-{\tt \%exec \_i4}
-
-{\tt \%exit}
-
-{\tt \%history}, {\tt \%hist}
-
-{\tt \%logstart [logfile]}
-
-{\tt \%logstop}
-
-{\tt \%logon}
-
-{\tt \%logoff}
-
-{\tt \%lsmagic} \rval list available magics
-
-{\tt \%paste}, {\tt cpaste}
-
-{\tt \%pycat}
-
-{\tt \%pylab}
-
-{\tt \%reset} \rval reset namespace
-
-{\tt \%save}
-
-{\tt \%rep \_i4} \rval edit input line
-
-{\tt \%run pgm.py} \rval run program
-
-{\tt \%run -t pgm.py} \rval report timing
-
-{\tt \%run -d -b<line> pgm.py} \rval debug, set breakpoint at line
-
-{\tt \%run -d -b <file.py>:<line> pgm.py}
-
-{\tt \%time}, {\tt \%timeit}
-
-{\tt \%who}, {\tt \%who\_ls}, {\tt whos}
-
-{\tt \%xmode}
-
-\end{multicols}
-
-\medskip
 
 \bigskip
 {\large\bf SOURCE ENCODING}
@@ -2095,7 +1980,12 @@ savefig('plot', dpi=150)   # plot.png
 
 (opt.: {\tt \%matplotlib inline})
 
-Lit.: \url{http://matplotlib.org}
+Lit.: 
+
+\begin{itemize}
+\item \url{http://matplotlib.org}
+\item \url{https://matplotlib.org/faq/usage_faq.html}
+\end{itemize}
 
 
 \item SciPy
@@ -2125,8 +2015,8 @@ import scipy
 \addcontentsline{toc}{section}{TOOLS} 
 
 \medskip
-{\bf Package Management}
-\addcontentsline{toc}{subsection}{Package Management}
+{\bf Package Distribution}
+\addcontentsline{toc}{subsection}{Package Distribution}
 
 \begin{itemize}
 
@@ -2193,6 +2083,138 @@ build_sphinx  test            bdist_wininst   [py2exe]       ...
 \end{itemize}
 
 Lit.: [9]
+
+\label{ipython-section}
+
+\medskip
+{\bf IPython}
+\addcontentsline{toc}{subsection}{IPython}
+
+Get help with {\tt ?} or {\tt ??} after module, function, 
+object, identifier.
+
+\begin{verbatim}
+import os
+os?
+id?
+\end{verbatim}
+
+Press {\tt TAB} key to auto-complete.
+
+Commandline arguments
+
+\begin{verbatim}
+ipython --help
+ipython locate           # ~/.ipython/
+ipython profile help
+ipython profile list
+ipython profile create <name>
+ipython --pylab          # Using matplotlib backend: Qt5Agg (default)
+ipython --pylab=tk       # Using matplotlib backend: tk
+ipython --matplotlib tk
+ipython --matplotlib qt
+\end{verbatim}
+
+Module {\tt IPython}: {\tt import IPython; print(IPython.version\_info)}
+
+
+
+\medskip
+{\bf Ipython Magic}
+
+\setlength{\columnsep}{1cm}
+\begin{multicols}{3}
+
+Enter {\tt quickref} or {\tt lsmagic} for a list of magic commands.
+
+
+{\tt \%quickref} \rval IPy quick reference
+
+{\tt <magic>? \rval help}
+
+{\tt !ls} \rval system command; {\tt L = !ls} store output in list L
+
+{\tt In [26]:} \rval {\tt \_i26}, {\tt \_ih[26]}, {\tt \_ih[26:27]}
+
+{\tt Out [26]:} \rval {\tt \_oh[26]}
+
+Inputs {\tt \_i}, {\tt \_ii}, {\tt \_iii}, 
+Outputs {\tt \_}, {\tt \_\_}, {\tt \_\_\_} 
+
+{\tt \#\%\%} \rval  cell
+
+{\tt \%<magic>} \rval line magic; {\tt \%\%<magic>} \rval cell magic
+
+{\tt \%bookmark}
+
+{\tt \%cd-<nr>}
+
+{\tt \%cd \~{}}
+
+{\tt \%clear} \rval Konsole löschen
+
+{\tt \%dhist}
+
+{\tt \%dirs}, {\tt \%pushd}, {\tt popd} \rval directory stack
+
+{\tt \%edit}, {\tt \%ed} start editor (env var EDITOR)
+
+{\tt \%env}
+
+{\tt \%exec \_i4}
+
+{\tt \%exit}
+
+{\tt \%history}, {\tt \%hist}
+
+{\tt \%logstart [logfile]}
+
+{\tt \%logstop}
+
+{\tt \%logon}
+
+{\tt \%logoff}
+
+{\tt \%lsmagic} \rval list available magics
+
+{\tt \%matplotlib} query mpl backend
+
+{\tt \%matplotlib -{}-list} show mpl backends
+
+{\tt \%matplotlib gui} set mpl backend to gui
+
+{\tt \%paste}, {\tt cpaste}
+
+{\tt \%pycat}
+
+{\tt \%pylab}
+
+{\tt \%pwd}
+
+{\tt \%reset} \rval reset namespace
+
+{\tt \%save}
+
+{\tt \%rep \_i4} \rval edit input line
+
+{\tt \%run pgm.py} \rval run program
+
+{\tt \%run -t pgm.py} \rval report timing
+
+{\tt \%run -d -b<line> pgm.py} \rval debug, set breakpoint at line
+
+{\tt \%run -d -b <file.py>:<line> pgm.py}
+
+{\tt \%time}, {\tt \%timeit}
+
+{\tt \%who}, {\tt \%who\_ls}, {\tt whos}
+
+{\tt \%xmode}
+
+\end{multicols}
+
+\medskip
+
 
 
 
@@ -2276,6 +2298,7 @@ conda remove --name <env> <package>
                                          pip show conda
 \end{verbatim}
 
+Lit.: [10]
 
 
 \medskip
@@ -2324,6 +2347,10 @@ Example: Create environment {\tt testenv} (Linux)
    $ conda activate testenv
    (testenv) hhoegl@e3:~$ _      # ~/miniconda3/envs/testenv/
 \end{verbatim}
+
+Lit.: [10]
+
+
 
 
 \medskip
@@ -2394,6 +2421,10 @@ Block uncomm   C-5          many more, see Tools -> Preferences menu in Spyder
 \bibitem{9} Python Packaging User Guide
 
     \url{https://packaging.python.org}
+
+\bibitem{10} Conda Documentation
+
+    \url{https://conda.io/projects/conda/en/latest/index.html}
 
 \end{thebibliography}
 
