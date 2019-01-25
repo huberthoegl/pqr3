@@ -2298,6 +2298,25 @@ conda remove --name <env> <package>
                                          pip show conda
 \end{verbatim}
 
+\medskip
+
+{\bf Conda Misc}
+
+Anaconda Prompt Starter (Windows)
+
+\begin{verbatim}
+conda update menuinst
+conda install -f console_shortcut
+\end{verbatim}
+
+Install Mingw Compiler (only for external
+programs)
+
+\begin{verbatim}
+conda install -c anaconda mingw
+\end{verbatim}
+
+
 Lit.: [10]
 
 
@@ -2316,6 +2335,8 @@ source new_env/bin/activate            # new_env\Scripts\activate.bat
 ...
 deactivate
 \end{verbatim}
+
+Delete a virtual env by deactivating and removing the directory.
 
 
 --- Conda Environments ---
