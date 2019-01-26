@@ -2105,18 +2105,22 @@ Commandline arguments
 
 \begin{verbatim}
 ipython --help
-ipython locate           # ~/.ipython/
-ipython profile help
+ipython locate                  # ~/.ipython/
+ipython profile help    
 ipython profile list
-ipython profile create <name>
-ipython --pylab          # Using matplotlib backend: Qt5Agg (default)
-ipython --pylab=tk       # Using matplotlib backend: tk
+ipython profile create <name>   
+ipython --pylab                 # Using matplotlib backend: Qt5Agg (default)
+ipython --pylab=tk              # Using matplotlib backend: tk
 ipython --matplotlib tk
 ipython --matplotlib qt
+ipython --profile=hubert        # Start ipython with profile "hubert"
 \end{verbatim}
 
 Module {\tt IPython}: {\tt import IPython; print(IPython.version\_info)}
 
+Default config file {\tt ~/.ipython/profile\_default/ipython\_config.py}
+
+Put startup code here: {\tt c.InteractiveShellApp.exec\_lines = "..."}
 
 
 \medskip
@@ -2134,14 +2138,15 @@ Enter {\tt quickref} or {\tt lsmagic} for a list of magic commands.
 
 {\tt !ls} \rval system command; {\tt L = !ls} store output in list L
 
-{\tt In [26]:} \rval {\tt \_i26}, {\tt \_ih[26]}, {\tt \_ih[26:27]}
+In Prompt: {\tt In [26]:}, {\tt \_i26}, {\tt \_ih[26]}, {\tt \_ih[26:27]}
 
-{\tt Out [26]:} \rval {\tt \_oh[26]}
+Out Prompt: {\tt Out [26]:}, {\tt \_26}, {\tt \_oh[26]} 
 
-Inputs {\tt \_i}, {\tt \_ii}, {\tt \_iii}, 
-Outputs {\tt \_}, {\tt \_\_}, {\tt \_\_\_} 
+Last 3 Inputs {\tt \_i}, {\tt \_ii}, {\tt \_iii}
 
-{\tt \#\%\%} \rval  cell
+Last 3 Outputs {\tt \_}, {\tt \_\_}, {\tt \_\_\_} 
+
+{\tt \#\%\%} \rval cell
 
 {\tt \%<magic>} \rval line magic; {\tt \%\%<magic>} \rval cell magic
 
@@ -2167,13 +2172,22 @@ Outputs {\tt \_}, {\tt \_\_}, {\tt \_\_\_}
 
 {\tt \%history}, {\tt \%hist}
 
-{\tt \%logstart [logfile]}
+{\tt \%load\_ext [extension]}
 
-{\tt \%logstop}
+Example: automatic module reload
 
-{\tt \%logon}
+\begin{verbatim}
+In [1]: load_ext autoreload
+In [2]: autoreload 2
+\end{verbatim}
 
-{\tt \%logoff}
+{\tt \%logstart [logfile]}  create log
+
+{\tt \%logstop} close log
+
+{\tt \%logon} temporary on
+
+{\tt \%logoff} temporary off
 
 {\tt \%lsmagic} \rval list available magics
 
@@ -2184,6 +2198,10 @@ Outputs {\tt \_}, {\tt \_\_}, {\tt \_\_\_}
 {\tt \%matplotlib gui} set mpl backend to gui
 
 {\tt \%paste}, {\tt cpaste}
+
+{\tt \%pdb} Control debugger activation
+
+{\tt \%prun} Python code profiler
 
 {\tt \%pycat}
 
@@ -2208,6 +2226,8 @@ Outputs {\tt \_}, {\tt \_\_}, {\tt \_\_\_}
 {\tt \%time}, {\tt \%timeit}
 
 {\tt \%who}, {\tt \%who\_ls}, {\tt whos}
+
+{\tt \%xdel} delete a variable
 
 {\tt \%xmode}
 
@@ -2287,6 +2307,7 @@ conda install <package>                  pip install <package>
                                          pip install -U <package>    # Upgrade
 conda install python=x.x  
 conda install --channel <name> <module>
+conda install --name env  scipy
 
 conda list --name <env>                  pip list
 conda list --export                      pip freeze
@@ -2297,6 +2318,8 @@ conda remove <package>                   pip uninstall <package>
 conda remove --name <env> <package>
                                          pip show conda
 \end{verbatim}
+
+Lit.: https://conda.io/projects/conda/en/latest/user-guide/tasks/
 
 \medskip
 
@@ -2321,8 +2344,8 @@ Lit.: [10]
 
 
 \medskip
-{\bf Environments}
-\addcontentsline{toc}{subsection}{Environments}
+{\bf Virtual Environments}
+\addcontentsline{toc}{subsection}{Virtual Environments}
 
 --- Venv Environments ---
 
@@ -2342,11 +2365,13 @@ Delete a virtual env by deactivating and removing the directory.
 --- Conda Environments ---
 
 \begin{verbatim}
------------Linux------------------     -----------Windows----------------
-conda create --name <env> python         
+-----------Linux------------------        -----------Windows----------------
+conda create --name <env> pgm[=rev] ...         
 conda info --envs (list all envs)        
-source activate <env>                    activate <env>
-source deactivate                        deactivate
+source activate <env>                     activate <env>
+new: conda activate <env>
+source deactivate                         deactivate
+new: conda deactivate
 conda remove --name myenv --all
 
 conda list -e > pkgfile
@@ -2355,23 +2380,67 @@ conda create -n <env> --file < pkgfile
 conda env --help   # modern env
 conda env export > pkgfile 
 conda env create -f=pkgfile -n <name>
-                                         
-conda env --help   # modern env commands
-conda env export > pkgfile 
-conda env create -f=pkgfile -n <name>
 \end{verbatim}
 
 Example: Create environment {\tt testenv} (Linux)
 
 \begin{verbatim}
-   $ conda create --name testenv python
+   $ conda create --name testenv python=3.6
    $ conda activate testenv
    (testenv) hhoegl@e3:~$ _      # ~/miniconda3/envs/testenv/
 \end{verbatim}
 
+Example: Create environment {\tt env\_full} with all pkgs in Anaconda (Linux)
+
+\begin{verbatim}
+  $ conda create --name env_full anaconda
+\end{verbatim}
+
+See pkgs at https://docs.anaconda.com/anaconda/packages/pkg-docs/
+
+
+
 Lit.: [10]
 
 
+\medskip
+{\bf Ipdb}
+\addcontentsline{toc}{subsection}{Ipdb}
+
+\begin{itemize}
+\item {\tt \$ pip install ipdb}
+
+\item 
+   \begin{verbatim}
+   $ python pgm.py
+
+   # - pgm.py -
+   import ipdb
+   ...
+   ipdb.set_trace()
+   \end{verbatim}
+
+\item {\tt ipdb pgm.py \ \ \ \ \  \# or ipdb3}
+
+\item {\tt ipython -{}-pdb pgm.py}
+
+\end{itemize}
+
+
+\begin{verbatim}
+ipdb> help
+
+Documented commands (type help <topic>):
+========================================
+EOF    cl         disable  interact  next    psource  rv         unt
+a      clear      display  j         p       q        s          until
+alias  commands   down     jump      pdef    quit     source     up
+args   condition  enable   l         pdoc    r        step       w
+b      cont       exit     list      pfile   restart  tbreak     whatis
+break  continue   h        ll        pinfo   return   u          where
+bt     d          help     longlist  pinfo2  retval   unalias
+c      debug      ignore   n         pp      run      undisplay
+\end{verbatim}
 
 
 \medskip
@@ -2400,10 +2469,12 @@ Block uncomm   C-5          many more, see Tools -> Preferences menu in Spyder
 
 \begin{tabbing}
     xxxxxxxxxxxxx \= xxxxxxxxxxxxxxxxxxxxxxx \kill
-    Ctrl-F        \> Search  \\
     Ctrl-Sh-ESC   \> Task Manager \\
+    Win-R         \> Programm ausführen \\
+    Win-Pause     \> Systemeigenschaften \\
     Win-E         \> Explorer \\
     Win-D         \> Desktop  \\
+    Ctrl-F        \> Search  \\
 \end{tabbing}
 
 \medskip
