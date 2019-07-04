@@ -41,7 +41,7 @@
 
           Hubert Högl
 
-      Revision 0.5, 2019-01-24 
+      Revision 0.6, 2019-07-04 
       
           2018, 2019
 
@@ -2368,11 +2368,13 @@ Delete a virtual env by deactivating and removing the directory.
 -----------Linux------------------        -----------Windows----------------
 conda create --name <env> pgm[=rev] ...         
 conda info --envs (list all envs)        
+conda env list    (list all envs)
 source activate <env>                     activate <env>
 new: conda activate <env>
 source deactivate                         deactivate
 new: conda deactivate
 conda remove --name myenv --all
+conda env remove -n myenv
 
 conda list -e > pkgfile
 conda create -n <env> --file < pkgfile
@@ -2469,12 +2471,15 @@ Block uncomm   C-5          many more, see Tools -> Preferences menu in Spyder
 \begin{tabbing}
     xxxxxxxxxxxxx \= xxxxxxxxxxxxxxxxxxxxxxx \kill
     Ctrl-Sh-ESC   \> Task Manager \\
-    Win-R         \> Programm ausführen \\
-    Win-Pause     \> Systemeigenschaften \\
+    Win-R         \> Run program \\
+    Win-Pause     \> System properties \\
     Win-E         \> Explorer \\
     Win-D         \> Desktop  \\
     Ctrl-F        \> Search  \\
 \end{tabbing}
+
+Program in start menu can be run as administrator by {\em right klicking} on 
+it.
 
 \medskip
 
