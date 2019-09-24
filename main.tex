@@ -41,7 +41,7 @@
 
           Hubert Högl
 
-      Revision 0.6, 2019-07-04 
+      Revision 0.7, 2019-09-24 
       
           2018, 2019
 
@@ -1155,7 +1155,72 @@ Lit.:
 
 \end{itemize}
 
+\newpage
 
+\bigskip
+{\LARGE\bf print() / string formatting}
+\addcontentsline{toc}{section}{print() / string formatting}
+
+\medskip
+
+{\bf print()}
+
+\begin{verbatim}
+>>> print("Hello")
+Hello
+>>> x = 10; y = 7.5
+>>> print("x =", x, "y =", y)
+x = 10 y = 7.5
+>>> print("First line.\nSecond line.")
+First line.
+Second line.
+\end{verbatim}
+
+\medskip
+
+{\bf Old Style string formatting}
+
+\begin{verbatim}
+>>> print("%d plus %d is %d" % (5, 2, 5+2))
+5 plus 2 is 7
+>>> print("|%04d...%6.2f...%-8s...%8s|" % (25, 7.198356, "Hello", "World"))
+|0025...  7.20...Hello   ...   World|
+\end{verbatim}
+
+\medskip
+
+{\bf New Style string formatting}
+
+\begin{verbatim}
+>>> print("{} plus {} is {}".format(5, 2, 5+2))
+5 plus 2 is 7
+>>> print("|{:04d}...{:6.2f}...{:8s}...{:>8s}|".format(25, 7.198356, "Hello", "World"))
+|0025...  7.20...Hello   ...   World|
+>>> print("{2} {1:^10s} {0}".format("one", "two", "three"))  # positional index
+three    two     one
+>>> print("{c} {b:^10s} {a}".format(a="one", b="two", c="three"))  
+three    two     one
+\end{verbatim}
+
+\medskip
+
+{\bf f-string}
+
+\begin{verbatim}
+>>> u = 5; v = 2
+>>> print(f"{u} plus {v} = {u + v}")
+5 plus 2 = 7
+>>> x = 25; y = 7.198356; s1 = "Hello"; s2 = "World"
+>>> print(f"|{x:04d}...{y:6.2f}...{s1:8s}...{s2:>8s}|")
+|0025...  7.20...Hello   ...   World|
+\end{verbatim}
+
+
+Lit.: \url{https://pyformat.info}
+
+
+% also see Format Specification Mini-Language
+% https://docs.python.org/3/library/string.html#formatspec
 
 
 \bigskip
