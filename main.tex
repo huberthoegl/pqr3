@@ -39,11 +39,11 @@
 }
            \bigskip
 
-          Hubert Högl
+           Hubert Högl
 
-      Revision 0.7, 2019-09-24 
+      Revision 0.8, 2020-01-26 
       
-          2018, 2019
+        2018, 2019, 2020
 
  \url{https://github.com/huberthoegl/pqr3}
       
@@ -2430,14 +2430,11 @@ Delete a virtual env by deactivating and removing the directory.
 --- Conda Environments ---
 
 \begin{verbatim}
------------Linux------------------        -----------Windows----------------
 conda create --name <env> pgm[=rev] ...         
 conda info --envs (list all envs)        
 conda env list    (list all envs)
-source activate <env>                     activate <env>
-new: conda activate <env>
-source deactivate                         deactivate
-new: conda deactivate
+conda activate <env>              old: source activate env
+conda deactivate                  old: source deactivate                         
 conda remove --name myenv --all
 conda env remove -n myenv
 
