@@ -12,16 +12,17 @@
 \usepackage{comment}
 \usepackage{url}
 \usepackage{multicol}
+\usepackage{color}
 
-% toc linking does not work
-%\usepackage{hyperref}
-%\hypersetup{
-%    colorlinks,
-%    citecolor=black,
-%    filecolor=black,
-%    linkcolor=black,
-%    urlcolor=black
-%}
+% see http://latexcolor.com
+\definecolor{blue-violet}{rgb}{0.54, 0.17, 0.89}
+\definecolor{ao(english)}{rgb}{0.0, 0.5, 0.0}
+
+\usepackage [
+    colorlinks=true,
+    urlcolor=blue,
+    linkcolor=ao(english)
+] {hyperref}
 
 \parindent=0pt
 \parskip=3pt
@@ -41,9 +42,9 @@
 
            Hubert Högl
 
-      Revision 0.8, 2020-01-26 
+      Revision 0.8.1, 2021-04-13 
       
-        2018, 2019, 2020
+        2018, 2019, 2020, 2021
 
  \url{https://github.com/huberthoegl/pqr3}
       
@@ -63,11 +64,12 @@
 E-mail: {\tt <Hubert.Hoegl@t-online.de>}
 
 This text ist licensed under the Creative Commons License CC-BY-NC-SA (please
-see https://creativecommons.org).
+see \url{https://creativecommons.org}).
 
 \newpage
 
 {\LARGE\bf ENVIRONMENT VARIABLES}
+\phantomsection
 \addcontentsline{toc}{section}{Environment Variables}
 
 PYTHONSTARTUP: file executed on interactive startup (no default)
@@ -94,6 +96,7 @@ predictable seed.
 
 \bigskip
 {\LARGE\bf KEYWORDS}
+\phantomsection
 \addcontentsline{toc}{section}{Keywords}
 
 \begin{verbatim}
@@ -111,6 +114,7 @@ break      except     in         raise
 
 \bigskip
 {\large\bf PYTHON}
+\phantomsection
 \addcontentsline{toc}{section}{Python}
 
 \begin{verbatim}
@@ -133,6 +137,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 \bigskip
 {\large\bf IPYTHON}
+\phantomsection
 \addcontentsline{toc}{section}{IPython}
 
 \begin{verbatim}
@@ -157,6 +162,7 @@ In [1]: _
 
 \bigskip
 {\large\bf SOURCE ENCODING}
+\phantomsection
 \addcontentsline{toc}{section}{Source Encoding}
 
 \begin{itemize}
@@ -180,6 +186,7 @@ In [1]: _
 
 \bigskip
 {\LARGE\bf NUMBERS}
+\phantomsection
 \addcontentsline{toc}{section}{Numbers}
 
 Types: Integer, Float, Complex
@@ -207,6 +214,7 @@ Numbers are immutable
 
 \medskip
 {\bf Operations on Numbers}
+\phantomsection
 \addcontentsline{toc}{subsection}{Operations on numbers}
 
 \medskip
@@ -240,6 +248,7 @@ Numbers are immutable
 
 \bigskip
 {\LARGE\bf Integer methods}
+\phantomsection
 \addcontentsline{toc}{subsection}{Integer}
 
 \begin{verbatim}
@@ -258,6 +267,7 @@ Example:
 
 \bigskip
 {\LARGE\bf Float methods}
+\phantomsection
 \addcontentsline{toc}{subsection}{Float}
 
 \begin{verbatim}
@@ -269,6 +279,7 @@ f.conjugate         f.hex               f.is_integer
 
 \bigskip
 {\LARGE\bf Complex methods}
+\phantomsection
 \addcontentsline{toc}{subsection}{Complex}
 
 \begin{verbatim}
@@ -280,6 +291,7 @@ c.conjugate  c.imag       c.real
 
 \bigskip
 {\LARGE\bf ASSIGNMENTS}
+\phantomsection
 \addcontentsline{toc}{section}{Assignments}
 
 
@@ -300,6 +312,7 @@ a = 12 if cond else 0   # conditional expression
 
 \bigskip
 {\LARGE\bf COMPARISONS}
+\phantomsection
 \addcontentsline{toc}{section}{Comparisons}
 
 \medskip
@@ -332,6 +345,7 @@ Comparisons are defined for any types.
 
 \bigskip
 {\LARGE\bf SEQUENCES, MAPPINGS and COLLECTIONS}
+\phantomsection
 \addcontentsline{toc}{section}{Sequences, Mappings and Collections}
 
 \begin{verbatim}
@@ -380,6 +394,7 @@ Examples:
 
 \bigskip
 {\bf Operations on all sequences}
+\phantomsection
 \addcontentsline{toc}{subsection}{Operations on all sequences}
 
 \begin{supertabular}{|l|p{12cm}|c|}\hline
@@ -408,6 +423,7 @@ Examples:
 
 \bigskip
 {\bf Operations on mutable sequences}
+\phantomsection
 \addcontentsline{toc}{subsection}{Operations on mutable sequences}
 
 \begin{supertabular}{|l|p{12cm}|c|}\hline
@@ -429,6 +445,7 @@ Examples:
 
 \bigskip
 {\bf Operations on Mappings}
+\phantomsection
 \addcontentsline{toc}{subsection}{Operations on mappings}
 
 \begin{supertabular}{|l|p{12cm}|c|}\hline
@@ -447,6 +464,7 @@ Examples:
 
 \bigskip
 {\bf Operations on Sets}
+\phantomsection
 \addcontentsline{toc}{subsection}{Operations on Sets}
 
 
@@ -477,6 +495,7 @@ See also section SET METHODS below.
 
 \bigskip
 {\LARGE\bf STRING METHODS}
+\phantomsection
 \addcontentsline{toc}{section}{String Methods}
 
 IPython Hilfe ({\tt s.<tab>})
@@ -611,6 +630,7 @@ after it.  If the separator is not found, return two empty strings and s. & \\ \
 
 \bigskip
 {\LARGE\bf TUPLE METHODS}
+\phantomsection
 \addcontentsline{toc}{section}{Tuple Methods}
 
 \begin{verbatim}
@@ -649,6 +669,7 @@ Examples:
 
 \bigskip
 {\LARGE\bf LIST METHODS}
+\phantomsection
 \addcontentsline{toc}{section}{List Methods}
 
 % IPython: {\tt L.<tab>}
@@ -723,6 +744,7 @@ Examples:
 
 \bigskip
 {\LARGE\bf DICTIONARY METHODS}
+\phantomsection
 \addcontentsline{toc}{section}{Dictionary Methods}
 
 \begin{verbatim}
@@ -792,6 +814,7 @@ dict_items([(0, 'Null'), (1, 'Eins')])
 
 \bigskip
 {\LARGE\bf SET METHODS}
+\phantomsection
 \addcontentsline{toc}{section}{Set Methods}
 
 \begin{verbatim}
@@ -853,6 +876,7 @@ Example:
 
 \bigskip
 {\LARGE\bf FUNCTIONS}
+\phantomsection
 \addcontentsline{toc}{section}{Functions}
 
 \begin{itemize}
@@ -905,6 +929,7 @@ Example:
 
 \bigskip
 {\LARGE\bf BUILTIN FUNCTIONS}
+\phantomsection
 \addcontentsline{toc}{section}{Builtin Functions}
 
 \begin{verbatim}
@@ -1159,6 +1184,7 @@ Lit.:
 
 \bigskip
 {\LARGE\bf print() / string formatting}
+\phantomsection
 \addcontentsline{toc}{section}{print() / string formatting}
 
 \medskip
@@ -1225,6 +1251,7 @@ Lit.: \url{https://pyformat.info}
 
 \bigskip
 {\LARGE\bf CONTROL STRUCTURES}
+\phantomsection
 \addcontentsline{toc}{section}{Control Structures}
 
 
@@ -1249,6 +1276,7 @@ else:
 
 \bigskip
 {\LARGE\bf FILES}
+\phantomsection
 \addcontentsline{toc}{section}{Files}
 
 \begin{verbatim}
@@ -1339,6 +1367,7 @@ Examples
 
 \bigskip
 {\LARGE\bf CLASSES AND OBJECTS}
+\phantomsection
 \addcontentsline{toc}{section}{Classes and Objects}
 
 \bigskip
@@ -1401,11 +1430,12 @@ Implementing Descriptors &   \\ \hline
 
 % XXX TODO: demonstrate descriptors and properties
 
-Lit.: https://docs.python.org/3/reference/datamodel.html
+Lit.: \url{https://docs.python.org/3/reference/datamodel.html}
 
 
 \bigskip
 {\LARGE\bf CHANGES FROM PYTHON2 TO PYTHON3}
+\phantomsection
 \addcontentsline{toc}{section}{Changes from Python2 to Python3}
 
 \begin{itemize}
@@ -1429,6 +1459,7 @@ Lit.: The Conservative Python 3 Porting Guide
 
 \bigskip
 {\LARGE\bf EXCEPTIONS}
+\phantomsection
 \addcontentsline{toc}{section}{Exceptions}
 
 Exception hierarchy
@@ -1455,10 +1486,10 @@ BaseException
          DeprecationWarning
          ...
       many more...
-      user define exceptions...
+      user defined exceptions...
 \end{verbatim}
 
-Lit.: https://docs.python.org/3/library/exceptions.html
+Lit.: \url{https://docs.python.org/3/library/exceptions.html}
 
 \medskip
 
@@ -1493,6 +1524,7 @@ except MyExc as x:
 
 \bigskip
 {\LARGE\bf MISCELLANEOUS}
+\phantomsection
 \addcontentsline{toc}{section}{Miscellaneous}
 
 \begin{itemize}
@@ -1510,17 +1542,18 @@ AssertionError: Alert. Too much pressure!
 
 \bigskip
 {\LARGE\bf DOCUMENT CREATION}
+\phantomsection
 \addcontentsline{toc}{section}{Document creation}
 
 \begin{itemize}
 
 \item Restructured Text (rst2html, rst2latex, \dots{})
 
-   http://docutils.sourceforge.net
+   \url{http://docutils.sourceforge.net}
 
 \item Sphinx
 
-   http://www.sphinx-doc.org
+   \url{http://www.sphinx-doc.org}
 
 \end{itemize}
 
@@ -1529,13 +1562,14 @@ AssertionError: Alert. Too much pressure!
 
 \bigskip
 {\LARGE\bf STANDARDLIBRARY OVERVIEW}
+\phantomsection
 \addcontentsline{toc}{section}{Standardlibrary Overview}
 
 "batteries included" | \url{https://docs.python.org/3/library}
 
 ``Python 3 module of the week'': \url{https://pymotw.com/3}
 
-Following list is from https://docs.python.org/3/py-modindex.html
+Following list is from \url{https://docs.python.org/3/py-modindex.html}
 
 \begin{verbatim}
 __future__    Future statement definitions
@@ -1787,10 +1821,12 @@ zlib       Low-level interface to compression and decompression routines compati
 
 \bigskip
 {\LARGE\bf IMPORTANT MODULES}
+\phantomsection
 \addcontentsline{toc}{section}{Important Modules}
 
 \bigskip
 {\LARGE\bf Module datetime}
+\phantomsection
 % \addcontentsline{toc}{subsection}{datetime}
 
 \begin{verbatim}
@@ -1802,7 +1838,7 @@ dT = datetime.timedelta(days=8)
 print(chrismas + dT)   # 2017-01-01
 \end{verbatim}
 
-Lit.: https://docs.python.org/3/library/datetime.html
+Lit.: \url{https://docs.python.org/3/library/datetime.html}
 
 
 \bigskip
@@ -1978,11 +2014,12 @@ See also the {\tt timeit} Module.
 
 \medskip
 
-Lit.: https://docs.python.org/3/library/time.html
+Lit.: \url{https://docs.python.org/3/library/time.html}
 
 
 \bigskip
 {\LARGE\bf Numeric and Scientific Python}
+\phantomsection
 \addcontentsline{toc}{section}{Numeric and Scientific Python}
 
 \begin{itemize}
@@ -2074,9 +2111,9 @@ import scipy
 
 
 
-
 \bigskip
 {\LARGE\bf TOOLS}
+\phantomsection
 \addcontentsline{toc}{section}{TOOLS} 
 
 \medskip
@@ -2153,6 +2190,7 @@ Lit.: [9]
 
 \medskip
 {\bf IPython}
+\phantomsection
 \addcontentsline{toc}{subsection}{IPython}
 
 Get help with {\tt ?} or {\tt ??} after module, function, 
@@ -2305,6 +2343,7 @@ In [2]: autoreload 2
 
 \medskip
 {\bf Jupyter}
+\phantomsection
 \addcontentsline{toc}{subsection}{Jupyter}
 
 \begin{verbatim}
@@ -2361,6 +2400,7 @@ Toggle comment     Ctrl-/
 
 \medskip
 {\bf Conda/Pip Package Management}
+\phantomsection
 \addcontentsline{toc}{subsection}{Conda/Pip Package Management}
 
 \begin{verbatim}
@@ -2384,7 +2424,7 @@ conda remove --name <env> <package>
                                          pip show conda
 \end{verbatim}
 
-Lit.: https://conda.io/projects/conda/en/latest/user-guide/tasks/
+Lit.: \url{https://conda.io/projects/conda/en/latest/user-guide/tasks/}
 
 \medskip
 
@@ -2410,6 +2450,7 @@ Lit.: [10]
 
 \medskip
 {\bf Virtual Environments}
+\phantomsection
 \addcontentsline{toc}{subsection}{Virtual Environments}
 
 --- Venv Environments ---
@@ -2460,7 +2501,7 @@ Example: Create environment {\tt env\_full} with all pkgs in Anaconda (Linux)
   $ conda create --name env_full anaconda
 \end{verbatim}
 
-See pkgs at https://docs.anaconda.com/anaconda/packages/pkg-docs/
+See pkgs at \url{https://docs.anaconda.com/anaconda/packages/pkg-docs/}
 
 
 
@@ -2469,6 +2510,7 @@ Lit.: [10]
 
 \medskip
 {\bf Ipdb}
+\phantomsection
 \addcontentsline{toc}{subsection}{Ipdb}
 
 \begin{itemize}
@@ -2509,6 +2551,7 @@ c      debug      ignore   n         pp      run      undisplay
 
 \medskip
 {\bf Spyder}
+\phantomsection
 \addcontentsline{toc}{subsection}{Spyder}
 
 {\bf Spyder keyboard shortcuts}
@@ -2528,6 +2571,7 @@ Block uncomm   C-5          many more, see Tools -> Preferences menu in Spyder
 \medskip
 
 {\bf Windows Keys}
+\phantomsection
 \addcontentsline{toc}{subsection}{Windows Keys}
 
 \begin{tabbing}
@@ -2546,6 +2590,7 @@ it.
 \medskip
 
 {\bf Firefox Keys}
+\phantomsection
 \addcontentsline{toc}{subsection}{Firefox Keys}
 
 \begin{tabbing}
@@ -2567,6 +2612,7 @@ it.
     
 
 \addcontentsline{toc}{section}{Literature}
+\phantomsection
 \bibliographystyle{plain}
 
 
